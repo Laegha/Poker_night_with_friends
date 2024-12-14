@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://haw82ysmrf8w"]
+
+[ext_resource type="PackedScene" uid="uid://cr2ysp5lm0mnq" path="res://Scenes/MainMenu/mainmenu.tscn" id="1_tby0t"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Mainmenu" parent="." instance=ExtResource("1_tby0t")]
+scale = Vector2(5.65, 5.65)
+
+[node name="Camera2D" type="Camera2D" parent="Mainmenu"]
