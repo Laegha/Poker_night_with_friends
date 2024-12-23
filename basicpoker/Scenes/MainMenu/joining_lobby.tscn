@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfyomjmgueaji"]
+
+[ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_6puj4"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/PanelAnimator.gd" id="2_mg76w"]
+[ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="3_67s5b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucttd"]
+texture = ExtResource("1_6puj4")
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="JoiningLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="Panel" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ucttd")
+script = ExtResource("2_mg76w")
+spriteSheet = ExtResource("1_6puj4")
+cellSize = Vector2(320, 180)
+loopType = 1
+animDuration = 1.0
+
+[node name="Available Lobbys" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 147.0
+offset_top = 108.0
+offset_right = 659.0
+offset_bottom = 416.0
+
+[node name="Label" type="Label" parent="Available Lobbys"]
+layout_mode = 1
+offset_right = 413.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("3_67s5b")
+theme_override_font_sizes/font_size = 60
+text = "Available Lobbys"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Available Lobbys"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 852.0
+offset_bottom = 427.0

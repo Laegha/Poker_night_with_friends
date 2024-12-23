@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbyi200sa713s"]
+
+[ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_40lis"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/PanelAnimator.gd" id="2_b6mh7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gkr4m"]
+texture = ExtResource("1_40lis")
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="LobbyHost" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="Panel" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gkr4m")
+script = ExtResource("2_b6mh7")
+spriteSheet = ExtResource("1_40lis")
+cellSize = Vector2(320, 180)
+loopType = 1
+animDuration = 1.0

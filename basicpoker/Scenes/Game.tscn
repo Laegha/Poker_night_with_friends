@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://haw82ysmrf8w"]
+[gd_scene load_steps=3 format=3 uid="uid://haw82ysmrf8w"]
 
-[ext_resource type="PackedScene" uid="uid://cr2ysp5lm0mnq" path="res://Scenes/MainMenu/mainmenu.tscn" id="1_tby0t"]
+[ext_resource type="Script" path="res://Assets/Scripts/GameManagement/scene_manager.gd" id="1_5tlgl"]
+[ext_resource type="PackedScene" uid="uid://cr2ysp5lm0mnq" path="res://Scenes/MainMenu/mainmenu.tscn" id="2_dhane"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node" node_paths=PackedStringArray("gui", "world_2d")]
+script = ExtResource("1_5tlgl")
+gui = NodePath("GUI")
+world_2d = NodePath("World2D")
+main_menu_scene = ExtResource("2_dhane")
 
-[node name="Mainmenu" parent="." instance=ExtResource("1_tby0t")]
-scale = Vector2(5.65, 5.65)
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Camera2D" type="Camera2D" parent="Mainmenu"]
+[node name="World2D" type="Node2D" parent="."]

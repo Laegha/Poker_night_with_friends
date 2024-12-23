@@ -1,0 +1,274 @@
+[gd_scene load_steps=21 format=3 uid="uid://bhlkh5x0hudwn"]
+
+[ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_4jy0q"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/creating_lobby.gd" id="1_sx33e"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/PanelAnimator.gd" id="2_mdk10"]
+[ext_resource type="PackedScene" uid="uid://cr2ysp5lm0mnq" path="res://Scenes/MainMenu/mainmenu.tscn" id="2_vf5d8"]
+[ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="4_ev65x"]
+[ext_resource type="StyleBox" uid="uid://1227f4qx2g1q" path="res://Assets/Styleboxes/MainMenu/menu_button_hover.tres" id="5_b8go6"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/options_style_override.gd" id="5_hgcgj"]
+[ext_resource type="StyleBox" uid="uid://d4jhkpfaq22pe" path="res://Assets/Styleboxes/MainMenu/menu_button_pressed.tres" id="6_j5l1t"]
+[ext_resource type="StyleBox" uid="uid://co3kcm10cjr3c" path="res://Assets/Styleboxes/MainMenu/menu_button_normal.tres" id="7_1gjbn"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/number_line_edit.gd" id="9_8kcoi"]
+[ext_resource type="Texture2D" uid="uid://dpvbuq7j5fipr" path="res://Assets/Sprites/MainMenu/ReturnArrow.png" id="10_20tag"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hismd"]
+texture = ExtResource("1_4jy0q")
+region_rect = Rect2(0, 0, 320, 180)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1csq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_oqldr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3d65"]
+content_margin_left = 15.0
+bg_color = Color(0.439049, 0.439049, 0.439049, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.52549, 0.0823529, 0.0823529, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8ro5"]
+content_margin_left = 15.0
+bg_color = Color(0.337255, 0.337255, 0.337255, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.52549, 0.0823529, 0.0823529, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w378f"]
+content_margin_left = 15.0
+bg_color = Color(0.513726, 0.513726, 0.513726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.52549, 0.0823529, 0.0823529, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shts3"]
+content_margin_left = 15.0
+bg_color = Color(0.513726, 0.513726, 0.513726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.52549, 0.0823529, 0.0823529, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgxxn"]
+content_margin_left = 15.0
+bg_color = Color(0.439216, 0.439216, 0.439216, 1)
+border_color = Color(0.52549, 0.0823529, 0.0823529, 0.654902)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exqgl"]
+content_margin_left = 15.0
+bg_color = Color(0.337255, 0.337255, 0.337255, 1)
+border_color = Color(0.52549, 0.0823529, 0.0823529, 0.654902)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="CreatingLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sx33e")
+main_menu_scene = ExtResource("2_vf5d8")
+lobby_host_scene = null
+
+[node name="BG" type="Panel" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hismd")
+script = ExtResource("2_mdk10")
+spriteSheet = ExtResource("1_4jy0q")
+cellSize = Vector2(320, 180)
+loopType = 1
+animDuration = 1.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -71.0
+offset_right = -51.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 82.0
+offset_right = 705.0
+offset_bottom = 478.0
+
+[node name="Lobby Name" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/Lobby Name"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ev65x")
+theme_override_font_sizes/font_size = 60
+text = "Lobby Name"
+
+[node name="NameInput" type="LineEdit" parent="Options/Lobby Name"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ev65x")
+theme_override_font_sizes/font_size = 65
+theme_override_styles/focus = SubResource("StyleBoxFlat_u1csq")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_u1csq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u1csq")
+placeholder_text = "Placeholder"
+max_length = 35
+expand_to_text_length = true
+
+[node name="GameMode" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/GameMode"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ev65x")
+theme_override_font_sizes/font_size = 60
+text = "Game Mode"
+
+[node name="OptionButton" type="OptionButton" parent="Options/GameMode"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme = SubResource("Theme_oqldr")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ev65x")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_l3d65")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q8ro5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w378f")
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Classic (2 Cards each)"
+popup/item_1/text = "Draw poker (5 Cards each)"
+popup/item_1/id = 1
+script = ExtResource("5_hgcgj")
+font = ExtResource("4_ev65x")
+font_size = 40.0
+panel_style_box = SubResource("StyleBoxFlat_shts3")
+hover_style_box = SubResource("StyleBoxFlat_mgxxn")
+pressed_style_box = SubResource("StyleBoxFlat_exqgl")
+
+[node name="InitialChips" type="VBoxContainer" parent="Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/InitialChips"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ev65x")
+theme_override_font_sizes/font_size = 60
+text = "Initial chips"
+
+[node name="LineEdit" type="LineEdit" parent="Options/InitialChips"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ev65x")
+theme_override_font_sizes/font_size = 50
+text = "5000"
+expand_to_text_length = true
+script = ExtResource("9_8kcoi")
+
+[node name="ReturnBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 203.0
+offset_top = 112.0
+offset_right = 430.0
+offset_bottom = 222.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_hover_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_color = Color(0.139794, 0.00642755, 0.0234373, 1)
+theme_override_colors/font_outline_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("4_ev65x")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed = ExtResource("5_b8go6")
+theme_override_styles/hover = ExtResource("5_b8go6")
+theme_override_styles/pressed = ExtResource("6_j5l1t")
+theme_override_styles/normal = ExtResource("7_1gjbn")
+text = "Return"
+icon = ExtResource("10_20tag")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="CreateBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -182.0
+offset_right = 119.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_hover_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_color = Color(0.139794, 0.00642755, 0.0234373, 1)
+theme_override_colors/font_outline_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("4_ev65x")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/hover_pressed = ExtResource("5_b8go6")
+theme_override_styles/hover = ExtResource("5_b8go6")
+theme_override_styles/pressed = ExtResource("6_j5l1t")
+theme_override_styles/normal = ExtResource("7_1gjbn")
+text = "Create"
+
+[connection signal="pressed" from="ReturnBtn" to="." method="_on_return_btn_pressed"]
+[connection signal="pressed" from="CreateBtn" to="." method="_on_create_btn_pressed"]

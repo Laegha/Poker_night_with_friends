@@ -9,8 +9,8 @@ enum loopTypes {NONE, REPEAT, BOUNCE}
 
 var cols: int
 var rows: int
-var styleBox: StyleBoxTexture
-var timeBetweenFrames: float
+var style_box: StyleBoxTexture
+var time_between_frames: float
 
 func _ready() -> void:
 	var width = spriteSheet.get_width()
@@ -22,9 +22,8 @@ func _ready() -> void:
 
 	cols = int(width / cellSize.x)
 	rows = int(height / cellSize.y)
-	timeBetweenFrames = animDuration / (cols * rows)
-	print(timeBetweenFrames)
-	styleBox = $".".get_theme_stylebox("panel") as StyleBoxTexture
+	time_between_frames = animDuration / (cols * rows)
+	style_box = $".".get_theme_stylebox("panel") as StyleBoxTexture
 	if playOnStart:
 		playAnimation()
 
@@ -34,7 +33,7 @@ func playAnimation():
 	var playingAnim: bool = true
 	
 	while playingAnim:
-		styleBox.region_rect = Rect2(currColumn * cellSize.x, currRow * cellSize.y, cellSize.x, cellSize.y)
+		style_box.region_rect = Rect2(currColumn * cellSize.x, currRow * cellSize.y, cellSize.x, cellSize.y)
 		currColumn += 1
 		if currColumn == cols:
 			currColumn = 0
@@ -42,7 +41,7 @@ func playAnimation():
 			if currRow == rows:
 				playingAnim = false
 				endAnimation()
-		await get_tree().create_timer(timeBetweenFrames).timeout
+		await get_tree().create_timer(time_between_frames).timeout
 
 func endAnimation():
 	if loopType == loopTypes.REPEAT:
@@ -56,7 +55,7 @@ func bounceAnimation():
 	var playingAnim: bool = true
 	
 	while playingAnim:
-		styleBox.region_rect = Rect2(currColumn * cellSize.x, currRow * cellSize.y, cellSize.x, cellSize.y)
+		style_box.region_rect = Rect2(currColumn * cellSize.x, currRow * cellSize.y, cellSize.x, cellSize.y)
 		currColumn -= 1
 		if currColumn == 0:
 			currColumn = cols -1
@@ -64,4 +63,4 @@ func bounceAnimation():
 			if currRow == 0:
 				playingAnim = false
 				playAnimation()
-		await get_tree().create_timer(timeBetweenFrames).timeout
+		await get_tree().create_timer(time_between_frames).timeout
