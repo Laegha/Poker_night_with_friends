@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhlkh5x0hudwn"]
+[gd_scene load_steps=20 format=3 uid="uid://bhlkh5x0hudwn"]
 
 [ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_4jy0q"]
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/creating_lobby.gd" id="1_sx33e"]
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/PanelAnimator.gd" id="2_mdk10"]
-[ext_resource type="PackedScene" uid="uid://dfyomjmgueaji" path="res://Scenes/MainMenu/joining_lobby.tscn" id="2_vf5d8"]
 [ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="4_ev65x"]
 [ext_resource type="StyleBox" uid="uid://1227f4qx2g1q" path="res://Assets/Styleboxes/MainMenu/menu_button_hover.tres" id="5_b8go6"]
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/options_style_override.gd" id="5_hgcgj"]
@@ -102,7 +101,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sx33e")
-main_menu_scene = ExtResource("2_vf5d8")
 
 [node name="BG" type="Panel" parent="."]
 z_index = -2

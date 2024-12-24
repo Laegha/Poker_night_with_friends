@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Assets/Scripts/GameManagement/game_manager.gd"
-SceneManager="*res://Assets/Scripts/GameManagement/scene_manager.gd"
 
 [display]
 

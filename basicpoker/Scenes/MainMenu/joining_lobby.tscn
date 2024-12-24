@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfyomjmgueaji"]
+[gd_scene load_steps=10 format=3 uid="uid://dfyomjmgueaji"]
 
 [ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_6puj4"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/joining_lobby.gd" id="1_qp6j3"]
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/PanelAnimator.gd" id="2_mg76w"]
 [ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="3_67s5b"]
+[ext_resource type="StyleBox" uid="uid://1227f4qx2g1q" path="res://Assets/Styleboxes/MainMenu/menu_button_hover.tres" id="5_vxqcx"]
+[ext_resource type="StyleBox" uid="uid://d4jhkpfaq22pe" path="res://Assets/Styleboxes/MainMenu/menu_button_pressed.tres" id="6_33o56"]
+[ext_resource type="StyleBox" uid="uid://co3kcm10cjr3c" path="res://Assets/Styleboxes/MainMenu/menu_button_normal.tres" id="7_m2ma0"]
+[ext_resource type="Texture2D" uid="uid://dpvbuq7j5fipr" path="res://Assets/Sprites/MainMenu/ReturnArrow.png" id="8_ej5qs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ucttd"]
 texture = ExtResource("1_6puj4")
@@ -15,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qp6j3")
 
 [node name="BG" type="Panel" parent="."]
 z_index = -2
@@ -52,3 +58,35 @@ layout_mode = 0
 offset_top = 55.0
 offset_right = 852.0
 offset_bottom = 427.0
+
+[node name="ReturnBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 203.0
+offset_top = 112.0
+offset_right = 430.0
+offset_bottom = 222.0
+grow_horizontal = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_hover_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_colors/font_color = Color(0.139794, 0.00642755, 0.0234373, 1)
+theme_override_colors/font_outline_color = Color(0.141176, 0.00784314, 0.0235294, 1)
+theme_override_fonts/font = ExtResource("3_67s5b")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover_pressed = ExtResource("5_vxqcx")
+theme_override_styles/hover = ExtResource("5_vxqcx")
+theme_override_styles/pressed = ExtResource("6_33o56")
+theme_override_styles/normal = ExtResource("7_m2ma0")
+text = "Return"
+icon = ExtResource("8_ej5qs")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[connection signal="pressed" from="ReturnBtn" to="." method="_on_return_btn_pressed"]

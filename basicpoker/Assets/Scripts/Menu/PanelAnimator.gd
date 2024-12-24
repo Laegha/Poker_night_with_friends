@@ -41,6 +41,8 @@ func playAnimation():
 			if currRow == rows:
 				playingAnim = false
 				endAnimation()
+		if get_tree() == null:
+			return
 		await get_tree().create_timer(time_between_frames).timeout
 
 func endAnimation():
@@ -63,4 +65,6 @@ func bounceAnimation():
 			if currRow == 0:
 				playingAnim = false
 				playAnimation()
+		if get_tree() == null:
+			return
 		await get_tree().create_timer(time_between_frames).timeout

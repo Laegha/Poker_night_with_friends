@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cr2ysp5lm0mnq"]
+[gd_scene load_steps=15 format=3 uid="uid://cr2ysp5lm0mnq"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/MainMenu.gd" id="1_bvn2o"]
 [ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_yg45b"]
 [ext_resource type="FontFile" uid="uid://d2d5nuwre1fqo" path="res://Assets/Fonts/BirchLeaf.ttf" id="2_1aq0u"]
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/PanelAnimator.gd" id="2_bypq0"]
-[ext_resource type="PackedScene" uid="uid://bhlkh5x0hudwn" path="res://Scenes/MainMenu/creating_lobby.tscn" id="2_ouqj2"]
-[ext_resource type="PackedScene" uid="uid://dfyomjmgueaji" path="res://Scenes/MainMenu/joining_lobby.tscn" id="3_kj6xs"]
 [ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="4_7qiex"]
 [ext_resource type="StyleBox" uid="uid://1227f4qx2g1q" path="res://Assets/Styleboxes/MainMenu/menu_button_hover.tres" id="8_nduq1"]
 [ext_resource type="StyleBox" uid="uid://d4jhkpfaq22pe" path="res://Assets/Styleboxes/MainMenu/menu_button_pressed.tres" id="9_tqyr5"]
@@ -80,8 +78,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bvn2o")
-create_lobby_scene = ExtResource("2_ouqj2")
-join_lobby_scene = ExtResource("3_kj6xs")
 name_input_field = NodePath("PlayerNameInput")
 
 [node name="BG" type="Panel" parent="."]
