@@ -3,9 +3,13 @@ class_name Host
 extends Node
 
 var SERVER_PORT: int = 7777
-var SERVER_IP: String = "123"
+var SERVER_IP: String
 
 var lobby_name: String
+
+var connected_players_ids: Array[int]
+var game_mode: String
+var initial_chips: int
 
 func _ready() -> void:
 	#Getting IP
@@ -38,7 +42,9 @@ func is_port_available(port: int) -> bool:
 	return result == OK
 	
 func _on_player_connected(id: int):
-	pass
+	connected_players_ids.append(id)
 
 func _on_player_disconnected(id: int):
-	pass
+	for i in range(0, connected_players_ids.size()):
+		if connected_players_ids[i] == id:
+			connected_players_ids.remove_at(i)

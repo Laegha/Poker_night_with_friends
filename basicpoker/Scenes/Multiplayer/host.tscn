@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6llr2ajqe8fy"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/OnlineManagement/host.gd" id="1_8qug7"]
+
+[node name="Host" type="Node"]
+script = ExtResource("1_8qug7")
