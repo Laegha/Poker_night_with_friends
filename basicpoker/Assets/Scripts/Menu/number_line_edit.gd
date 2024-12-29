@@ -1,6 +1,6 @@
 @tool 
 
-class_name NumberLineInput
+class_name NumberLineEdit
 
 extends LineEdit
 
