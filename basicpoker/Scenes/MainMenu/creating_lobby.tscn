@@ -93,7 +93,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="CreatingLobby" type="Control"]
+[node name="CreatingLobby" type="Control" node_paths=PackedStringArray("lobby_name_le", "game_modes_btn", "initial_chips_nle")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +101,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sx33e")
+lobby_name_le = NodePath("Options/Lobby Name/NameInput")
+game_modes_btn = NodePath("Options/GameMode/OptionButton")
+initial_chips_nle = NodePath("Options/InitialChips/LineEdit")
 
 [node name="BG" type="Panel" parent="."]
 z_index = -2
