@@ -18,7 +18,6 @@ func load_gui_scene(loaded_scene: String):
 	if current_gui_scene != null:
 		gui.remove_child(current_gui_scene)
 	var new_scene: Control = load(loaded_scene).instantiate()
-	print("Just loaded: " + str(main_menu_scene))
 	gui.add_child(new_scene)
 	current_gui_scene = new_scene
 	
