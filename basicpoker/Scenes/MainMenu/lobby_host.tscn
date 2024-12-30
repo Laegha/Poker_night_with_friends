@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbyi200sa713s"]
+[gd_scene load_steps=6 format=3 uid="uid://cbyi200sa713s"]
 
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/lobby_host.gd" id="1_6c288"]
 [ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_40lis"]
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/PanelAnimator.gd" id="2_b6mh7"]
+[ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="3_x4idw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gkr4m"]
 texture = ExtResource("1_40lis")
@@ -14,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6c288")
 
 [node name="BG" type="Panel" parent="."]
 z_index = -2
@@ -29,3 +32,20 @@ spriteSheet = ExtResource("1_40lis")
 cellSize = Vector2(320, 180)
 loopType = 1
 animDuration = 1.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 95.0
+offset_right = 574.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("3_x4idw")
+theme_override_font_sizes/font_size = 80
+text = "Lobby Name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 173.0
+offset_right = 957.0
+offset_bottom = 509.0
