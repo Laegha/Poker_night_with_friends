@@ -2,7 +2,7 @@ class_name Host
 
 extends Node
 
-var SERVER_PORT: int = 7777
+var SERVER_PORT: int = 7000
 var SERVER_IP: String
 
 var lobby_name: String
@@ -11,7 +11,7 @@ var connected_players_ids: Array[int]
 var game_mode: String
 var initial_chips: int
 
-func _ready() -> void:
+func start_host() -> void:
 	#Getting IP
 	if OS.has_feature("windows"):
 		if OS.has_environment("COMPUTERNAME"):
@@ -27,18 +27,24 @@ func _ready() -> void:
 	while not is_port_available(SERVER_PORT):
 		SERVER_PORT = randi_range(49152, 65535)
 	
+	
 	var server_peer: ENetMultiplayerPeer = ENetMultiplayerPeer.new()
 	server_peer.create_server(SERVER_PORT)
+	
+	if multiplayer.multiplayer_peer:
+		multiplayer.multiplayer_peer.close()
 	
 	multiplayer.multiplayer_peer = server_peer
 	
 	multiplayer.peer_connected.connect(_on_player_connected)
 	multiplayer.peer_disconnected.connect(_on_player_disconnected)
+	print("Host succesfully loaded!")
 	
 func is_port_available(port: int) -> bool:
-	var test_socket: StreamPeerTCP = StreamPeerTCP.new()
+	var test_socket: TCPServer = TCPServer.new()
 	var result: Error = test_socket.listen(port)
-	test_socket.close()
+	print(result)
+	test_socket.stop()
 	return result == OK
 	
 func _on_player_connected(id: int):
