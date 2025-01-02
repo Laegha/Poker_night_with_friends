@@ -147,13 +147,13 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Options/Lobby Name"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ev65x")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 64
 text = "Lobby Name"
 
 [node name="NameInput" type="LineEdit" parent="Options/Lobby Name"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ev65x")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxFlat_u1csq")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_u1csq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u1csq")
@@ -167,7 +167,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Options/GameMode"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ev65x")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 64
 text = "Game Mode"
 
 [node name="OptionButton" type="OptionButton" parent="Options/GameMode"]
@@ -177,7 +177,7 @@ size_flags_vertical = 3
 theme = SubResource("Theme_oqldr")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_ev65x")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 48
 theme_override_styles/hover = SubResource("StyleBoxFlat_l3d65")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q8ro5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_w378f")
@@ -200,13 +200,13 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Options/InitialChips"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ev65x")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 64
 text = "Initial chips"
 
 [node name="LineEdit" type="LineEdit" parent="Options/InitialChips"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_ev65x")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 64
 text = "5000"
 expand_to_text_length = true
 script = ExtResource("9_8kcoi")
@@ -216,7 +216,7 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 203.0
+offset_left = 169.0
 offset_top = 112.0
 offset_right = 430.0
 offset_bottom = 222.0
@@ -230,7 +230,7 @@ theme_override_colors/font_focus_color = Color(0.141176, 0.00784314, 0.0235294, 
 theme_override_colors/font_color = Color(0.139794, 0.00642755, 0.0234373, 1)
 theme_override_colors/font_outline_color = Color(0.141176, 0.00784314, 0.0235294, 1)
 theme_override_fonts/font = ExtResource("4_ev65x")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 64
 theme_override_styles/hover_pressed = ExtResource("5_b8go6")
 theme_override_styles/hover = ExtResource("5_b8go6")
 theme_override_styles/pressed = ExtResource("6_j5l1t")
@@ -248,10 +248,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -119.0
-offset_top = -182.0
-offset_right = 119.0
-offset_bottom = -78.0
+offset_left = -105.0
+offset_top = -158.0
+offset_right = 105.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -263,7 +263,7 @@ theme_override_colors/font_focus_color = Color(0.141176, 0.00784314, 0.0235294, 
 theme_override_colors/font_color = Color(0.139794, 0.00642755, 0.0234373, 1)
 theme_override_colors/font_outline_color = Color(0.141176, 0.00784314, 0.0235294, 1)
 theme_override_fonts/font = ExtResource("4_ev65x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 64
 theme_override_styles/hover_pressed = ExtResource("5_b8go6")
 theme_override_styles/hover = ExtResource("5_b8go6")
 theme_override_styles/pressed = ExtResource("6_j5l1t")
