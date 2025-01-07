@@ -10,7 +10,10 @@ func set_host():
 	print(error)
 
 func get_packet(dict: Dictionary) -> String:
-	pass
+	var packet: String = ""
+	for key: String in dict:
+		packet += key + ":" + dict[key] + ":"
+	return packet
 
 @rpc("any_peer", "call_remote", "unreliable")
 func test_rpc():
