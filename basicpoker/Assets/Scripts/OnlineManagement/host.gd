@@ -11,8 +11,8 @@ var connected_players_ids: Array[int]
 var game_mode: String
 var initial_chips: int
 
-signal player_added
-signal player_removed
+signal player_added(id: int)
+signal player_removed(id: int)
 
 func start_host() -> void:
 	#Getting IP
@@ -49,10 +49,10 @@ func is_port_available(port: int) -> bool:
 	
 func _on_player_connected(id: int):
 	connected_players_ids.append(id)
-	player_added.emit()
+	player_added.emit(id)
 
 func _on_player_disconnected(id: int):
 	for i in range(0, connected_players_ids.size()):
 		if connected_players_ids[i] == id:
 			connected_players_ids.remove_at(i)
-	player_removed.emit()
+	player_removed.emit(id)
