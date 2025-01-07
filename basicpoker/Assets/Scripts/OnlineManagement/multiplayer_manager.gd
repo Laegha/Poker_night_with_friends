@@ -12,7 +12,7 @@ func set_host():
 func get_packet(dict: Dictionary) -> String:
 	var packet: String = ""
 	for key: String in dict:
-		packet += key + ":" + dict[key] + ":"
+		packet += str(key) + ":" + str(dict[key]) + ":"
 	return packet
 
 @rpc("any_peer", "call_remote", "unreliable")
