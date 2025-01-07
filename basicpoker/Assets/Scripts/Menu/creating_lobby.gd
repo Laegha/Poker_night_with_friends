@@ -10,6 +10,7 @@ var host_scene: String = "res://Scenes/Multiplayer/host.tscn"
 
 func _on_create_btn_pressed() -> void:
 	var host: Host = load(host_scene).instantiate()
+	MultiplayerManager.host = host
 	GameManager.root_node.add_child(host)
 	host.lobby_name = lobby_name_le.text
 	host.game_mode = game_modes_btn.text
