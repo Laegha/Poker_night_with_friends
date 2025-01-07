@@ -14,7 +14,7 @@ func _on_create_btn_pressed() -> void:
 	host.lobby_name = lobby_name_le.text
 	host.game_mode = game_modes_btn.text
 	host.initial_chips = int(initial_chips_nle.text)
-	host.start_host()
+	await host.start_host()
 	GameManager.scene_manager.load_gui_scene(lobby_host_scene)
 	
 
