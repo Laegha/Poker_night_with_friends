@@ -16,3 +16,9 @@ func update_player_name(new_name: String):
 func show_full_tree():
 	print("Full tree:")
 	print(scene_manager.get_tree_string_pretty())
+
+func get_child_in_node(node: Node, child_name: String):
+	for child in node.get_children():
+		if child.name == child_name:
+			return child
+	return null
