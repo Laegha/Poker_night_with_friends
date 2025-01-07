@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3f60aedb6lhr"]
+
+[ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="1_4531w"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/lobby_label.gd" id="1_ghhib"]
+[ext_resource type="Texture2D" uid="uid://ihgli3ic6s2l" path="res://Assets/Sprites/MainMenu/ConnectedPeopleIcon.png" id="2_jr8w5"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/text_adjust_label.gd" id="2_r5x2m"]
+
+[node name="LobbyLabel" type="Control" node_paths=PackedStringArray("lobby_name_label", "connected_people_label", "join_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -300.0
+offset_bottom = -598.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ghhib")
+lobby_name_label = NodePath("LobbyName")
+connected_people_label = NodePath("ConnectedPeopleLabel")
+join_button = NodePath("Button")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 852.0
+offset_bottom = 78.0
+
+[node name="LobbyName" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 11.0
+offset_right = 311.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("1_4531w")
+theme_override_font_sizes/font_size = 64
+text = "Lobby Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+script = ExtResource("2_r5x2m")
+min_text_to_fill_scale = 1.042
+min_font_size = 16
+
+[node name="ConnectedPeopleIcon" type="Sprite2D" parent="."]
+position = Vector2(409, 39)
+scale = Vector2(0.712644, 0.712644)
+texture = ExtResource("2_jr8w5")
+
+[node name="ConnectedPeopleLabel" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 457.0
+offset_right = 577.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("1_4531w")
+theme_override_font_sizes/font_size = 64
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r5x2m")
+min_text_to_fill_scale = 1.042
+min_font_size = 16
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 852.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("1_4531w")
+theme_override_font_sizes/font_size = 64
+text = "Join"
