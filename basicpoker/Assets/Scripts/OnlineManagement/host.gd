@@ -49,10 +49,10 @@ func is_port_available(port: int) -> bool:
 	
 func _on_player_connected(id: int):
 	connected_players_ids.append(id)
-	on_player_added.emit()
+	player_added.emit()
 
 func _on_player_disconnected(id: int):
 	for i in range(0, connected_players_ids.size()):
 		if connected_players_ids[i] == id:
 			connected_players_ids.remove_at(i)
-	on_player_removed.emit()
+	player_removed.emit()
