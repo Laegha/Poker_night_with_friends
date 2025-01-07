@@ -23,17 +23,15 @@ func _ready() -> void:
 	MultiplayerManager.host.player_removed.connect(remove_player_from_list)
 	
 	udp_socket.set_dest_address("255.255.255.255", BRODCAST_PORT)
-	brodcast_data()
+	brodcast_packet()
 
-
-
-func brodcast_data():
+func brodcast_packet():
 	var packet: String = MultiplayerManager.get_packet(get_packet_data())
 	udp_socket.put_packet(packet.to_utf8_buffer())
 
 func add_player_to_list(id: int):
 	print("Host detected the join of " + str(id))
-	brodcast_data()
+	brodcast_packet()
 	#var player_label: Control = load(player_label_scene).instantiate()
 	#var name_label: Label = GameManager.get_child_in_node(player_label, "NameLabel") as Label
 	
@@ -42,4 +40,4 @@ func add_player_to_list(id: int):
 	pass
 	
 func remove_player_from_list():
-	brodcast_data()
+	brodcast_packet()
