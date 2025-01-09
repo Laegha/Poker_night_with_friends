@@ -22,3 +22,17 @@ func get_child_in_node(node: Node, child_name: String):
 		if child.name == child_name:
 			return child
 	return null
+	
+func find_all_occurrences(input_string: String, key: String) -> Array:
+	var occurrences: Array[int] = []
+	var start_index: int = 0
+	
+	while true:
+		var index = input_string.find(key, start_index)
+		if index == -1:
+			break
+
+		occurrences.append(index)
+		start_index = index + key.length()
+
+	return occurrences
