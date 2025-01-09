@@ -5,11 +5,7 @@ extends Node
 var SERVER_PORT: int = 55000
 var SERVER_IP: String
 
-var lobby_name: String
-
-var connected_players_ids: Array[int]
-var game_mode: String
-var initial_chips: int
+var lobby: Lobby
 
 signal player_added(id: int)
 signal player_removed(id: int)
