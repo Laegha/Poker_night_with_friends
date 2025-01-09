@@ -4,6 +4,7 @@ static var name_filter = "%filtered"
 
 var SERVER_IP: String
 var SERVER_PORT: int
+var filtered_lobby_name: String
 var lobby_name: String
 var connected_players_ids: Array[int]
 var game_mode: String
@@ -20,9 +21,9 @@ func get_packet_data() -> Dictionary:
 	}
 func set_packet_data(data: Dictionary):
 	SERVER_IP = data["IP"]
-	SERVER_PORT = data["PORT"]
+	SERVER_PORT = data["PORT"] as int
 	lobby_name = data["LOBBY_NAME"]
-	connected_players_ids = data["PLAYERS"]
+	connected_players_ids = data["PLAYERS"] as int
 	game_mode = data["GAMEMODE"]
 
 static func unfilter_lobby_name(filtered_lobby_name: String):
