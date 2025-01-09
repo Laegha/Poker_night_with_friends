@@ -11,8 +11,8 @@ var host_scene: String = "res://Scenes/Multiplayer/host.tscn"
 func _on_create_btn_pressed() -> void:
 	var host: Host = load(host_scene).instantiate()
 	GameManager.root_node.add_child(host)
-	host.lobby.lobby_name = lobby_name_le.text
 	host.lobby.filtered_lobby_name = filter_lobby_name(lobby_name_le.text)
+	host.lobby.lobby_name = Lobby.unfilter_lobby_name(host.lobby.filt)
 	host.lobby.game_mode = game_modes_btn.text
 	host.lobby.initial_chips = int(initial_chips_nle.text)
 	await host.start_host()
