@@ -5,7 +5,9 @@ extends Node
 var SERVER_PORT: int = 55000
 var SERVER_IP: String
 
-var lobby: Lobby
+var lobby_data: LobbyData = LobbyData.new()
+
+var connected_players_ids: Array[int]
 
 signal player_added(id: int)
 signal player_removed(id: int)
@@ -35,6 +37,8 @@ func start_host() -> void:
 	multiplayer.peer_connected.connect(_on_player_connected)
 	multiplayer.peer_disconnected.connect(_on_player_disconnected)
 	
+	lobby_data.SERVER_IP = SERVER_IP
+	lobby_data.SERVER_PORT = SERVER_PORT
 	print("Host succesfully loaded with ID: " + str(multiplayer.get_unique_id()) + " on port: " + str(SERVER_PORT))
 	
 func is_port_available(port: int) -> bool:
@@ -45,10 +49,12 @@ func is_port_available(port: int) -> bool:
 	
 func _on_player_connected(id: int):
 	connected_players_ids.append(id)
+	lobby_data.connected_players = connected_players_ids.size()
 	player_added.emit(id)
 
 func _on_player_disconnected(id: int):
 	for i in range(0, connected_players_ids.size()):
 		if connected_players_ids[i] == id:
 			connected_players_ids.remove_at(i)
+	lobby_data.connected_players = connected_players_ids.size()
 	player_removed.emit(id)
