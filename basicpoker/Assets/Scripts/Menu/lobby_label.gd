@@ -13,6 +13,5 @@ func update_lobby_data(new_lobby_data: LobbyData):
 	update_gfx()
 
 func update_gfx():
-	lobby_name_label.text = lobby_data.lobby_name
+	lobby_name_label.text = LobbyData.unfilter_lobby_name(lobby_data.filtered_lobby_name)
 	connected_people_label.text = str(lobby_data.connected_players)
-	print("Label inscripting data " + lobby_data.lobby_name)
