@@ -13,5 +13,5 @@ func update_lobby_data(new_lobby_data: LobbyData):
 	update_gfx()
 
 func update_gfx():
-	lobby_name_label.text = LobbyData.unfilter_lobby_name(lobby_data.filtered_lobby_name)
+	lobby_name_label.text = GameManager.replace_substr_in_str(lobby_data.filtered_lobby_name, LobbyData.name_filter, MultiplayerManager.packet_item_separation)
 	connected_people_label.text = str(lobby_data.connected_players)
