@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b80urivanwujf"]
+
+[ext_resource type="Script" path="res://Assets/Test/replace_str_test.gd" id="1_qkete"]
+
+[node name="ReplaceStrTest" type="Node"]
+script = ExtResource("1_qkete")
+test_str = "def/:"
