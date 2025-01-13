@@ -54,7 +54,8 @@ func replace_substr_in_str(original_string: String, substr_to_replace: String, s
 	
 	for kept_part: String in kept_parts:
 		repleaced_name = repleaced_name + kept_part + substr_to_put
-	if last_repleacable_end + substr_to_replace.length() < original_string.length():
-		repleaced_name = repleaced_name + original_string.substr(last_repleacable_end, original_string.length())
+	
+	if replaceable_indexes[-1] + substr_to_replace.length() < original_string.length():
+		repleaced_name = repleaced_name + original_string.substr(last_repleacable_end, original_string.length() - last_repleacable_end)
 		
 	return repleaced_name
