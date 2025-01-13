@@ -46,13 +46,15 @@ func replace_substr_in_str(original_string: String, substr_to_replace: String, s
 	var last_repleacable_end: int = 0
 	var kept_parts: Array[String] = []
 	for repleaceable_start: int in replaceable_indexes:
-		kept_parts.append(original_string.substr(last_repleacable_end, repleaceable_start))
+		kept_parts.append(original_string.substr(last_repleacable_end, repleaceable_start - last_repleacable_end))
 		last_repleacable_end = repleaceable_start + substr_to_replace.length()
 	
-	if last_repleacable_end < original_string.length():
-		kept_parts.append(original_string.substr(last_repleacable_end, original_string.length()))
-	
+	print("KEPT PARTS: " + str(kept_parts))
 	var repleaced_name: String = ""
+	
 	for kept_part: String in kept_parts:
-		repleaced_name += kept_part + MultiplayerManager.packet_item_separation
+		repleaced_name = repleaced_name + kept_part + substr_to_put
+	if last_repleacable_end + substr_to_replace.length() < original_string.length():
+		repleaced_name = repleaced_name + original_string.substr(last_repleacable_end, original_string.length())
+		
 	return repleaced_name
