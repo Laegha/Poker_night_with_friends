@@ -36,3 +36,23 @@ func find_all_occurrences(input_string: String, key: String) -> Array:
 		start_index = index + key.length()
 
 	return occurrences
+
+func replace_substr_in_str(original_string: String, substr_to_replace: String, substr_to_put: String):
+	var replaceable_indexes: Array[int] = GameManager.find_all_occurrences(original_string, substr_to_replace)
+	if replaceable_indexes.is_empty():
+		return original_string
+	
+	replaceable_indexes.sort()
+	var last_repleacable_end: int = 0
+	var kept_parts: Array[String] = []
+	for repleaceable_start: int in replaceable_indexes:
+		kept_parts.append(original_string.substr(last_repleacable_end, repleaceable_start))
+		last_repleacable_end = repleaceable_start + substr_to_replace.length()
+	
+	if last_repleacable_end < original_string.length():
+		kept_parts.append(original_string.substr(last_repleacable_end, original_string.length()))
+	
+	var repleaced_name: String = ""
+	for kept_part: String in kept_parts:
+		repleaced_name += kept_part + MultiplayerManager.packet_item_separation
+	return repleaced_name
