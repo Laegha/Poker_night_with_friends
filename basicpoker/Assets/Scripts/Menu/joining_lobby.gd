@@ -1,3 +1,5 @@
+class_name JoiningLobby
+
 extends Control
 
 var main_menu_scene: String = "res://Scenes/MainMenu/mainmenu.tscn"
@@ -6,6 +8,10 @@ var available_lobbys: Dictionary
 
 @export var lobby_label_container: BoxContainer
 var lobby_label_scene: String = "res://Scenes/MainMenu/lobby_label.tscn"
+var client_scene: String
+
+func _on_return_btn_pressed() -> void:
+	GameManager.scene_manager.load_gui_scene(main_menu_scene)
 
 func _ready() -> void:
 	MultiplayerManager.set_packet_peer(false)
@@ -28,6 +34,12 @@ func on_packet_recieved(packet_data: String):
 	else:
 		#instantiate label and give it packet values using MultiplayerManager.get_dict_from_packet
 		var new_label: LobbyLabel = load(lobby_label_scene).instantiate()
+		new_label
 		lobby_label_container.add_child(new_label)
 		available_lobbys[lobby_key] = new_label
 		available_lobbys[lobby_key].update_lobby_data(new_lobby_data)
+
+func join_lobby(ip: String, port: int):
+	var client: Client = load(client_scene).instantiate()
+	GameManager.root_node.add_child(client)
+	
