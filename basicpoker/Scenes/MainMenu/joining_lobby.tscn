@@ -59,6 +59,7 @@ layout_mode = 0
 offset_top = 121.0
 offset_right = 852.0
 offset_bottom = 493.0
+theme_override_constants/separation = 84
 
 [node name="ReturnBtn" type="Button" parent="."]
 layout_mode = 1
