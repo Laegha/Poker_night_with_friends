@@ -7,15 +7,15 @@ var available_lobbys: Dictionary
 @export var lobby_label_container: BoxContainer
 var lobby_label_scene: String = "res://Scenes/MainMenu/lobby_label.tscn"
 
+func _ready() -> void:
+	MultiplayerManager.set_packet_peer(false)
+
 func _process(delta: float) -> void:
 	var packet_count: int = MultiplayerManager.udp_socket.get_available_packet_count()
 	if packet_count <= 0:
-		print("ERROR RECIEVING PACKET, AVAILABLE PACKETS ARE " + str(packet_count))
 		return
 	
-	print("AVAILABLE PACKETS: " + str(packet_count))
 	var recieved_packet: String = MultiplayerManager.udp_socket.get_packet().get_string_from_utf8()
-	print("PACKET RECIEVED: " + recieved_packet)
 	on_packet_recieved(recieved_packet)
 
 func on_packet_recieved(packet_data: String):

@@ -5,6 +5,8 @@ var player_label_scene: String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MultiplayerManager.set_packet_peer(true)
+	
 	MultiplayerManager.host.player_added.connect(add_player_to_list)
 	MultiplayerManager.host.player_removed.connect(remove_player_from_list)
 	

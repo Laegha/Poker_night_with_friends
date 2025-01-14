@@ -7,11 +7,13 @@ var BRODCAST_PORT: int = 4343
 
 var packet_item_separation = "/:"
 
-func _ready() -> void:
+func set_packet_peer(is_host: bool) -> void:
 	udp_socket = PacketPeerUDP.new()
 	udp_socket.set_broadcast_enabled(true)
-	udp_socket.set_dest_address("255.255.255.255", BRODCAST_PORT)
-	udp_socket.bind(BRODCAST_PORT)
+	if is_host:
+		udp_socket.set_dest_address("255.255.255.255", BRODCAST_PORT)
+	else:
+		udp_socket.bind(BRODCAST_PORT)
 	
 func set_host():
 	#rpc_id(1, "get_host", self)
