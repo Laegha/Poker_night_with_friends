@@ -18,7 +18,6 @@ func get_packet_data() -> Dictionary:
 		"PORT" : SERVER_PORT,
 		"LOBBY_NAME" : filtered_lobby_name,
 		"PLAYERS" : connected_players,
-		"GAMEMODE" : game_mode
 	}
 
 func set_packet_data(data: Dictionary):
@@ -26,4 +25,3 @@ func set_packet_data(data: Dictionary):
 	SERVER_PORT = data["PORT"] as int
 	filtered_lobby_name = data["LOBBY_NAME"]
 	connected_players = data["PLAYERS"] as int
-	game_mode = data["GAMEMODE"]
