@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://delnrljro37xu"]
+
+[ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="1_2ddcy"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menu/player_label.gd" id="1_piqlo"]
+[ext_resource type="LabelSettings" uid="uid://crm5cpklgc0rr" path="res://Assets/LabelSettings/default_label.tres" id="2_f3s1u"]
+
+[node name="PlayerLabel" type="Control" node_paths=PackedStringArray("name_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_piqlo")
+name_label = NodePath("MarginContainer/Label")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 337.0
+offset_bottom = 85.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 316.0
+offset_bottom = 83.0
+theme_override_constants/margin_left = 12
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2ddcy")
+theme_override_font_sizes/font_size = 64
+text = "Player name"
+label_settings = ExtResource("2_f3s1u")
+vertical_alignment = 1
