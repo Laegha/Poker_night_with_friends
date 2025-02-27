@@ -1,8 +1,5 @@
 class_name LobbyData
 
-static var name_filter: String = "%filtered"
-static var packet_keys: Array[String] = ["IP", "PORT", "LOBBY_NAME", "PLAYERS", "GAMEMODE"]
-
 var SERVER_IP: String
 var SERVER_PORT: int
 var filtered_lobby_name: String
@@ -10,7 +7,6 @@ var lobby_name: String
 var connected_players: int
 var game_mode: String
 var initial_chips: int
-
 
 func get_packet_data() -> Dictionary:
 	return{

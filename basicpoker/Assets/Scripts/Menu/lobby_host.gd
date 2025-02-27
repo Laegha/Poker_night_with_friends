@@ -16,10 +16,10 @@ func brodcast_packet():
 	var packet: String = MultiplayerManager.get_packet_from_dict(MultiplayerManager.host.lobby_data.get_packet_data())
 	var buffer_packet: PackedByteArray = packet.to_utf8_buffer()
 	var result: Error = MultiplayerManager.udp_socket.put_packet(buffer_packet)
-	while result != OK:
+	while true:
 		print("Error putting packet " + str(buffer_packet) + ", retrying")
 		MultiplayerManager.udp_socket.put_packet(buffer_packet)
-		await get_tree().process_frame
+		await get_tree().create_timer(2.0).timeout
 	print("Sent packet: " + str(buffer_packet))
 
 func add_player_to_list(id: int):
