@@ -26,11 +26,21 @@ func _on_join_lobby_pressed() -> void:
 		ip = parts[0]
 		port = parts[1] as int
 	else:
-		lobby_ip_input_field.text = 
+		invalid_ip()
+		return
+	
 	var client: Client = load(client_scene).instantiate()
-	if(client.start_client(lobby_ip_input_field.text, MultiplayerManager))
-	GameManager.root_node.add_child(host)
+	if !client.start_client(ip, port):
+		invalid_ip()
+		return
+		
+	GameManager.root_node.add_child(client)
+	MultiplayerManager.client = client
 	GameManager.scene_manager.load_gui_scene(client_lobby_scene)
+
+func invalid_ip():
+	lobby_ip_input_field.text = invalid_ip_message
+	ip_input_animated_sprite.play("invalid_ip")
 
 func update_player_name():
 	GameManager.update_player_name(name_input_field.text)
