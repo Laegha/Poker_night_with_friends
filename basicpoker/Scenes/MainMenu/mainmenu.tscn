@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cr2ysp5lm0mnq"]
+[gd_scene load_steps=14 format=3 uid="uid://cr2ysp5lm0mnq"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/MainMenu.gd" id="1_bvn2o"]
 [ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_yg45b"]
@@ -55,22 +55,7 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5frs"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="GDScript" id="GDScript_clbh8"]
-script/source = "extends Control
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	$\".\".text
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("name_input_field")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("name_input_field", "lobby_ip_input_field")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,6 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bvn2o")
 name_input_field = NodePath("PlayerNameInput")
+lobby_ip_input_field = NodePath("PlayerNameInput/IpInput")
 
 [node name="BG" type="Panel" parent="."]
 z_index = -2
@@ -215,9 +201,8 @@ placeholder_text = "Sumbit your name"
 alignment = 1
 max_length = 25
 expand_to_text_length = true
-script = SubResource("GDScript_clbh8")
 
-[node name="PlayerNameInput" type="LineEdit" parent="PlayerNameInput"]
+[node name="IpInput" type="LineEdit" parent="PlayerNameInput"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -239,7 +224,8 @@ placeholder_text = "Sumbit the host's ip"
 alignment = 1
 max_length = 25
 expand_to_text_length = true
-script = SubResource("GDScript_clbh8")
 
 [connection signal="pressed" from="HBoxContainer/CreateLobby" to="." method="_on_create_lobby_pressed"]
 [connection signal="pressed" from="HBoxContainer/JoinLobby" to="." method="_on_join_lobby_pressed"]
+[connection signal="text_changed" from="PlayerNameInput" to="PlayerNameInput" method="text_changed"]
+[connection signal="text_changed" from="PlayerNameInput/IpInput" to="PlayerNameInput/IpInput" method="text_changed"]

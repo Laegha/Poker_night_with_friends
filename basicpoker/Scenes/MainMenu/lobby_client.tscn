@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb7nw5k7x6fge"]
+[gd_scene load_steps=5 format=3 uid="uid://cb7nw5k7x6fge"]
 
 [ext_resource type="Texture2D" uid="uid://dhl5fxfpqpsdo" path="res://Assets/Sprites/MainMenu/background-Sheet.png" id="1_1jd1r"]
 [ext_resource type="Script" path="res://Assets/Scripts/Menu/PanelAnimator.gd" id="2_u7ajd"]
+[ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="3_6p1l3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_72v7y"]
 texture = ExtResource("1_1jd1r")
@@ -29,3 +30,23 @@ spriteSheet = ExtResource("1_1jd1r")
 cellSize = Vector2(320, 180)
 loopType = 1
 animDuration = 1.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 194.0
+offset_top = 95.0
+offset_right = 574.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("3_6p1l3")
+theme_override_font_sizes/font_size = 80
+text = "Lobby Name"
+
+[node name="PlayersContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+offset_left = 193.0
+offset_top = 165.0
+offset_right = 746.0
+offset_bottom = 644.0
+
+[node name="Panel" type="Panel" parent="PlayersContainer"]
+custom_minimum_size = Vector2(553.455, 65.43)
+layout_mode = 2
