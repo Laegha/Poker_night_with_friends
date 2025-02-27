@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://crm5cpklgc0rr"]
+
+[ext_resource type="FontFile" uid="uid://cfmg5tt08um4m" path="res://Assets/Fonts/GrapeSoda.ttf" id="1_ryhli"]
+
+[resource]
+font = ExtResource("1_ryhli")
+font_size = 64
+outline_size = 16
+outline_color = Color(0.592448, 2.20198e-06, 4.33177e-07, 1)
